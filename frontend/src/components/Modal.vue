@@ -8,6 +8,9 @@
               <input v-model="message" type="text" class="custom-input">
               <label>Enter Your OTP:</label>
             </div>
+            <div class="input-container">
+              <button> Resend OTP</button>
+            </div>
           </slot>
         </section>
         <footer class="modal-footer">
@@ -147,11 +150,32 @@ label {
 .btn-red,
 .btn-green {
   color: white;
-  background: #4AAE9B;
-  border: 1px solid #4AAE9B;
-  border-radius: 2px;
-  width: 100px
+  border: none;
+  border-radius: 5px;
+  width: 120px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.btn-red {
+  background: #FF5733;
+}
+
+.btn-green {
+  background: #4CAF50;
+}
+
+/* Common hover effect */
+.btn-red:hover,
+.btn-green:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 
 .modal-fade-enter,
 .modal-fade-leave-to {

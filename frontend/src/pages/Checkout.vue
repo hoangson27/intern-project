@@ -89,11 +89,11 @@
 <script>
 import axios from "axios";
 import { mapState } from "vuex";
-import Modal from 'D:/DAIHOC/js/restaurant-ordering-system/frontend/src/components/Modal.vue';
+import Modal from '../components/Modal.vue';
 
 export default {
-    name: "Checkout",
 
+    name: "Checkout",
     data() {
         return {
             checkoutObj: { phone: "", address: "", paymentMethod: "" },
