@@ -1,6 +1,8 @@
 // import connection
 import db from "../config/database.js";
 
+
+
 // insert Bill Details
 export const insertBillDetails = (data,result) => {
     db.query("INSERT INTO billdetails SET ?",data, (err,results)=> {

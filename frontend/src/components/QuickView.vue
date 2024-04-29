@@ -14,7 +14,7 @@
                     <p class="desc">{{ f.food_desc }}</p>
                     <p class="money">${{ parseFloat(f.food_price) - parseFloat(f.food_discount) }}<span
                             v-if="parseFloat(f.food_discount) > 0">${{
-                                    parseFloat(f.food_price)
+                                parseFloat(f.food_price)
                             }}</span></p>
                     <div class="qty">
                         <label for="qty">Quantity:</label>

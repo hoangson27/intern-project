@@ -6,7 +6,8 @@ import {
     getAll,
     updateStatus,
     updatePaid,
-    cancelStatus
+    cancelStatus,
+    updateBill,
 } from "../models/BillStatusModel.js";
 
 // get newest Bill Status
@@ -27,6 +28,7 @@ export const createBillStatus=(req,res)=>{
         if (err) {
             res.send(err);
         }else {
+
             res.json(results);
         }
     });
@@ -68,7 +70,8 @@ export const getAllBills=(req,res)=>{
 
 // update Status
 export const updateBillStatus=(req,res)=>{
-    updateStatus(req.params.id,(err,results)=> {
+    const data = req.body;
+    updateStatus(data,(err,results)=> {
         if (err) {
             res.send(err);
         }else {
@@ -76,7 +79,15 @@ export const updateBillStatus=(req,res)=>{
         }
     });
 };
-
+export const update=(req,res)=>{
+    updateBill(req.params.id,(err,results)=> {
+        if (err) {
+            res.send(err);
+        }else {
+            res.json(results);
+        }
+    });
+};
 // update Paid
 export const updateBillPaid=(req,res)=>{
     updatePaid(req.params.id,(err,results)=> {

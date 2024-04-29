@@ -17,7 +17,7 @@
           <button type="button" class="btn-red" @click="close" aria-label="Close modal">
             Cancel
           </button>
-          <button type="button" class="btn-green" @click="logMessage" aria-label="Close modal">
+          <button type="button" class="btn-green" @click="submitPay" aria-label="Close modal">
             Pay
           </button>
         </footer>
@@ -28,19 +28,21 @@
 
 <script>
 
+//import axios from "axios";
 export default {
 
   name: 'Modal',
-
+  data() {
+    return {
+      message: ''
+    };
+  },
   methods: {
     close() {
       this.$emit('close');
     },
-    data: {
-      message: ''
-    },
-    logMessage: function () {
-      console.log(this.message);
+    submitPay() {
+      this.$emit('submitPay', this.message);
     }
   },
 };
@@ -62,6 +64,7 @@ export default {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-size: 16px;
   transition: box-shadow 0.3s, background-color 0.3s;
+
 }
 
 .custom-input:focus {

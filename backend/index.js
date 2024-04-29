@@ -24,7 +24,10 @@ app.use(cors());
 
 // use router
 app.use(router);
+import twilio from 'twilio';
 
+import { accountSid, authToken } from './config.js';
+const client = twilio(accountSid, authToken);
 // // Handle production
 // if (process.env.NODE_ENV === 'production'){
 //   // Static folder
@@ -37,7 +40,23 @@ app.use(router);
 app.get('/', function(req, res){
     res.json({ message: 'Welcome to restaurant api' });
 });
+app.post('/api/send-sms', async (req, res) => {
+  const { to, body } = req.body;
+  const msgOptions = {
+      from: "+12176456685",
+      to: to,
+      body: body,
+  };
 
+  try {
+      const message = await client.messages.create(msgOptions);
+      console.log(message);
+      res.json({ success: true, message: "SMS sent successfully" });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ success: false, message: "Failed to send SMS" });
+  }
+});
 // PORT
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {

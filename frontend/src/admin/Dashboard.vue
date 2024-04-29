@@ -118,7 +118,7 @@ export default {
         },
 
         async nextStatusBtn(id) {
-            await axios.put('/billstatus/' + id);
+            await axios.put('/billstatus/' + id + '/status');
             this.getAllBills();
         },
 

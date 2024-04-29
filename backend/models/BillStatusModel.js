@@ -67,8 +67,10 @@ export const getAll = (result) => {
 };
 
 
-export const updateStatus = (id,result) => {
-    db.query("UPDATE billstatus SET bill_status = bill_status + 1  WHERE bill_id = ?",id, (err,results)=> {
+export const updateStatus = (data,result) => { 
+    console.log(data)
+    db.query("UPDATE billstatus SET bill_address = ?,bill_when =?,bill_method =?,bill_discount =?,bill_delivery =?,bill_total =?,bill_paid =?, bill_status = ?  WHERE bill_id = ?",
+    [data.bill_address,data.bill_when,data.bill_method,data.bill_discount,data.bill_delivery,data.bill_total,data.bill_paid,data.bill_status,data.bill_id], (err,results)=> {
         if (err){
             console.log(err);
             result(err,null);
@@ -77,6 +79,20 @@ export const updateStatus = (id,result) => {
         }
     });
 };
+
+export const updateBill = (id,result) => {
+    
+    db.query("UPDATE billstatus SET bill_status = bill_status + 1  WHERE bill_id = ?",id, (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+  
+            result(null,results);
+        }
+    });
+};
+
 
 export const updatePaid = (id,result) => {
     db.query("UPDATE billstatus SET bill_paid = 'true' WHERE bill_id = ?",id, (err,results)=> {
