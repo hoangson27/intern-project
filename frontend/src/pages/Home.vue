@@ -127,7 +127,20 @@ export default {
         },
     },
 
+    mounted() {
+        // Tạo một phần tử iframe
+        const iframe = document.createElement("iframe");
+        iframe.id = "chatco_popup";
+        iframe.src = "https://api.cloodo.com/v1/popup_chat/?integrity=nkcGuZBEqzImN2kkuCqw";
+        iframe.width = "0";
+        iframe.height = "0";
+        document.body.appendChild(iframe);
 
+        // Tạo một phần tử script để tải kịch bản chat
+        const chatScript = document.createElement("script");
+        chatScript.src = "https://images-products.s3.us-east-1.amazonaws.com/popup-chat/chatcov2.js";
+        document.body.appendChild(chatScript);
+    },
 };
 </script>
 
