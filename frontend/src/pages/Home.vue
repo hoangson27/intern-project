@@ -87,7 +87,8 @@
             <div class="content">
                 <span>why choose us?</span>
                 <h3 class="title">what's make our food delicious!</h3>
-                <p>Food to customers is always guaranteed of the best quality. Our dishes are made by Masterchef Hoàng Sơn (a 5
+                <p>Food to customers is always guaranteed of the best quality. Our dishes are made by Masterchef Hoàng
+                    Sơn (a 5
                     Michelin stars chef), promising to bring explosive, delicate, impressive flavors. Our delivery
                     service is very professional, customers can enjoy the same quality at the restaurant</p>
                 <router-link @click="scrollToTop()" to="/about" class="btn">read more</router-link>
@@ -118,28 +119,15 @@
 
 <script>
 export default {
-  name: "Home",
+    name: "Home",
 
-  methods: {
-    scrollToTop() {
-      window.scrollTo(0, 0);
+    methods: {
+        scrollToTop() {
+            window.scrollTo(0, 0);
+        },
     },
-  },
 
-  mounted() {
-    // Tạo một phần tử iframe
-    const iframe = document.createElement("iframe");
-    iframe.id = "chatco_popup";
-    iframe.src = "https://api.cloodo.com/v1/popup_chat/?integrity=nkcGuZBEqzImN2kkuCqw";
-    iframe.width = "0";
-    iframe.height = "0";
-    document.body.appendChild(iframe);
 
-    // Tạo một phần tử script để tải kịch bản chat
-    const chatScript = document.createElement("script");
-    chatScript.src = "https://images-products.s3.us-east-1.amazonaws.com/popup-chat/chatcov2.js";
-    document.body.appendChild(chatScript);
-  },
 };
 </script>
 
@@ -410,7 +398,3 @@ export default {
     }
 }
 </style>
-
-
-
-
